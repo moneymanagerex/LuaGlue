@@ -20,8 +20,11 @@ template<typename _Ret, typename _Class, typename... _Args>
 class LuaGlueMethod : public LuaGlueMethodBase
 {
 	private:
-		template <typename... T>
- 		using tuple = std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...>;
+        template < typename... T >
+        struct tuple
+        {
+            typedef std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...> type;
+        };
 	
 	public:
 		typedef _Class ClassType;
@@ -86,7 +89,10 @@ class LuaGlueMethod<void, _Class, _Args...> : public LuaGlueMethodBase
 {
 	private:
 		template <typename... T>
- 		using tuple = std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...>;
+        struct tuple
+        {
+            typedef std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...> type;
+        };
 
 	public:
 		typedef _Class ClassType;
@@ -148,7 +154,10 @@ class LuaGlueConstMethod : public LuaGlueMethodBase
 {
 	private:
 		template <typename... T>
- 		using tuple = std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...>;
+        struct tuple
+        {
+            typedef std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...> type;
+        };
 
 	public:
 		typedef _Class ClassType;
@@ -214,7 +223,10 @@ class LuaGlueConstMethod<void, _Class, _Args...> : public LuaGlueMethodBase
 {
 	private:
 		template <typename... T>
- 		using tuple = std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...>;
+        struct tuple
+        {
+            typedef std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...> type;
+        };
 
 	public:
 		typedef _Class ClassType;
@@ -278,7 +290,10 @@ class LuaGlueMethod<_Ret, std::shared_ptr<_Class>, _Args...> : public LuaGlueMet
 {
 	private:
 		template <typename... T>
- 		using tuple = std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...>;
+        struct tuple
+        {
+            typedef std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...> type;
+        };
 
 	public:
 		typedef _Class ClassType;
@@ -345,7 +360,10 @@ class LuaGlueMethod<void, std::shared_ptr<_Class>, _Args...> : public LuaGlueMet
 {
 	private:
 		template <typename... T>
- 		using tuple = std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...>;
+        struct tuple
+        {
+            typedef std::tuple<typename std::remove_const<typename std::remove_reference<T>::type>::type...> type;
+        };
 
 	public:
 		typedef _Class ClassType;
