@@ -230,7 +230,7 @@ template<>
 struct stack<bool> {
 	static bool get(LuaGlueBase *, lua_State *s, int idx)
 	{
-        return lua_toboolean(s, idx) ? true : false;
+		return lua_toboolean(s, idx);
 	}
 	
 	static void put(LuaGlueBase *, lua_State *s, bool v)
