@@ -1,6 +1,8 @@
 #ifndef LUAGLUE_APPLYTUPLE_H_GUARD
 #define LUAGLUE_APPLYTUPLE_H_GUARD
 
+#define luaL_checkint(L,n)	((int)luaL_checkinteger(L, (n)))
+
 #include <cstdint>
 #include <tuple>
 #include <lua.hpp>
